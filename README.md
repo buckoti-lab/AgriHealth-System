@@ -9,9 +9,7 @@
 * Crop type
 * Disease classification
 
-It is built using Django for backend services and integrates a trained Convolutional Neural Network (CNN) model for image classification.
-
-## Features
+It is built using Django for backend services and integrates a trained Convolutional Neural Network (CNN) model for image classification.## Features
 
 * Upload vegetable leaf images
 * AI-powered disease detection
@@ -75,8 +73,8 @@ This project was developed as part of a Final Year Project (FYP) focusing on app
 
 ## Authors
 
-**Buckoti**
-**Jastin**
-**Alfred**
-**Joshua**
-**Ngwandu**
+* Buckoti
+* Jastin
+* Alfred
+* Joshua
+* Ngwandu
