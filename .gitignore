@@ -1,0 +1,16 @@
+# Environment variables
+.env
+
+# Database
+db.sqlite3
+
+# Media files
+media/
+webfonts/
+
+# AI Models
+cnn_assets/
+*.keras
+
+# IDE
+.vscode/

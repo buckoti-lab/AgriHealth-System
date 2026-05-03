@@ -1,0 +1,121 @@
+body {
+    /* background: url('https://images.unsplash.com/photo-1542838132-92c53300491e') center/cover; */
+    background: url("../assets/logo.png") no-repeat center/cover;
+    /* color: #fff; */
+}
+
+.overlay {
+    position:fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+}
+
+/* .overlay {
+    position: fixed; /* better than absolute 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.6);
+
+    pointer-events: none; /*🔥 THIS FIXES YOUR ISSUE
+    z-index: 0;
+} */
+
+.navbar, #main-content {
+    position: relative;
+    z-index: 2;
+}
+
+.navbar {
+    background: rgba(0,0,0,0.7);
+}
+.navbar-brand img{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+
+.nav-link {
+    display: inline-block;
+    color: #ccc;
+    margin-right: 15px;
+}
+
+.nav-link.active {
+    color: orange;
+}
+
+.card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: none;
+    color: #fff;
+}
+
+.upload-box {
+    text-align: center;
+}
+
+.preview img {
+    max-height: 150px;
+}
+
+.result-box ul {
+    text-align: left;
+}
+
+.table {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+}
+
+/* User dropdown */
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+#userIcon {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Custom dropdown (keeps your glass style) */
+.dropdown-menu-custom {
+    position: absolute;
+    right: 0;
+    top: 40px;
+    min-width: 150px;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    display: none;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.dropdown-menu-custom a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.dropdown-menu-custom a:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+i.fa.fa-image.img-icon{
+    cursor:pointer;
+}
+body > div.modal-backdrop.fade.show{
+    z-index: 1;
+}
+
+/* div > div > div.modal-header > h5{
+  color: black;
+} */

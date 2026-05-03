@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/sweetalert2.min.css">
+    <link rel="stylesheet" href="webfonts/css/all.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> -->
+</head>
+<body>
+
+<div class="overlay"></div>
+
+<div class="register-container">
+    <h1>REGISTER</h1>
+   <form id="registerForm">
+        <div class="input-group">
+            <i class="fa fa-user"></i>
+            <input type="text" id="username" placeholder="Username">
+        </div>
+
+        <div class="input-group">
+            <i class="fa fa-envelope"></i>
+            <input type="email" id="email" placeholder="E-mail Adress">
+        </div>
+
+        <div class="input-group">
+            <i class="fa fa-lock"></i>
+            <input type="password" id="password" placeholder="Password">
+            <!-- <i class="fa fa-eye toggle-password" id="togglePassword"></i> -->
+        </div>
+
+        <button type="submit" class="register-btn">Register</button>
+
+        <p class="or">Do you have an account?</p>
+
+        <button type="button" class="login-btn"><a href="login.html" target="_self">Login</a></button>
+    </form>
+</div>
+
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/sweetalert2.all.min.js"></script>
+<script src="js/register.js"></script>
+</body>
+</html>

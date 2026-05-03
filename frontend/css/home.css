@@ -1,0 +1,9 @@
+ul li img{
+    width:25px;
+    height:25px;
+    border-radius:50%;
+}
+
+.mt-3.supported{
+    color: white;
+}

@@ -1,0 +1,140 @@
+<link rel="stylesheet" href="css/home.css">
+
+<div class="container-fluid mt-3">
+<div class="row">
+
+<!-- LEFT PANEL -->
+<div class="col-md-3">
+    <div class="card p-3 upload-box">
+        <h6><i class="fa fa-camera"></i> Upload Image</h6>
+        
+        <form id="uploadForm" enctype="multipart/form-data">
+            <input type="file" name="image" id="imageInput" class="form-control mt-2">
+            <button type="submit" class="btn btn-primary mt-3 w-100" id="predictBtn">Predict</button>
+        </form>
+
+        <div class="preview mt-3 text-center">
+            <img id="previewImage" src="" class="img-fluid d-none"/>
+        </div>
+
+    
+    </div>
+
+    <div class="mt-3 supported">
+        <h6>Supported Vegetables</h6>
+        <!-- <ul>
+            <li>🍅 Tomato</li>
+            <li>🥒 Cucumber</li>
+            <li>🥬 Cabbage</li>
+            <li>🍆 Eggplant</li>
+            <li>🥬 Lettuce</li>
+        </ul> -->
+        <ul>
+            <li><img src="assets/veg/tomato.jpg" alt="Tomato"> Tomato</li>
+            <li><img src="assets/veg/cucumber.jpg" alt="Tomato"> Cucumber</li>
+            <li><img src="assets/veg/cabbage.jpg" alt="Tomato"> Cabbage</li>
+            <li><img src="assets/veg/eggplant.jpg" alt="Tomato"> Eggplant</li>
+            <li><img src="assets/veg/lettuce.jpg" alt="Tomato"> Lettuce</li>
+        </ul>
+    </div>
+</div>
+
+<!-- RESULT PANEL -->
+<div class="col-md-6">
+    <div class="card p-4 result-box">
+        <h5 class="text-center">PREDICTION RESULTS</h5>
+
+        <p><strong>Vegetable:</strong> <span id="veg">-</span></p>
+        <p><strong>Disease:</strong> <span id="disease">-</span></p>
+
+        <h6 class="mt-3">Treatment</h6>
+        <ul id="treatmentList"></ul>
+    </div>
+</div>
+
+</div>
+
+<!-- TABLE -->
+<div class="mt-4">
+    <h5 class="text-center">RECENT PREDICTIONS</h5>
+
+    <table class="table table-bordered table-hover text-center">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Vegetable</th>
+                <th>Disease</th>
+                <th>Action</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody id="recentTable"></tbody>
+    </table>
+</div>
+
+</div>
+
+<!-- IMAGE MODAL -->
+<div class="modal fade" id="homeImageModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+        <div class="modal-header">
+            <h5 class="modal-title">Prediction Details</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+            <img id="homeImage" class="img-fluid mb-3"/>
+            <!-- <h6>Recommendations</h6>
+            <ul id="recentTreatments"></ul> -->
+        </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- RECOMMENDATIONS MODAL -->
+<!-- <div class="modal fade" id="recModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+        <div class="modal-header">
+            <h5 class="modal-title">Prediction Details</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+            <img id="modalImage" class="img-fluid mb-3"/> 
+            <h6>Recommendations</h6>
+            <ul id="recentTreatments"></ul>
+        </div>
+
+        </div>
+    </div>
+</div> -->
+
+
+
+<div class="modal fade" id="homeTreatmentsModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">Prediction Details</h5>
+                <button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <h6>Recommendations</h6>
+                <ul id="homeTreatments"></ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="./js/home.js"></script>
+<!-- <div class="modal-backdrop fade __web-inspector-hide-shortcut__ show"></div> -->

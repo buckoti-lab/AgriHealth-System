@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vegetable Disease Detector</title>
+
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/dashboard.css" rel="stylesheet">
+<link rel="stylesheet" href="css/sweetalert2.min.css">
+
+<!-- Icons -->
+<link rel="stylesheet" href="webfonts/css/all.min.css">
+ <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> -->
+
+</head>
+<body>
+
+<div class="overlay"></div>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-dark px-3">
+        <span class="navbar-brand"><img src="assets/logo.png"></img> Vegetable Disease Detector</span>
+        <div id="upper-nav">
+            <a href="#" data-content="home" class="nav-link active">Home</a>
+            <a href="#" data-content="history" class="nav-link">History</a>
+            <a href="#" data-content="about" class="nav-link">About</a>
+            <div class="user-dropdown">
+                <i class="fa fa-user text-white ms-3" id="userIcon"></i>
+
+                <div class="dropdown-menu-custom" id="userMenu">
+                    <a href="#" id="profileBtn"><i class="fa fa-user-circle"></i> Profile</a>
+                    <a href="#" id="logoutBtn"><i class="fa fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="main-content">
+    </section>
+
+
+<!-- Scripts -->
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/sweetalert2.all.min.js"></script>
+<script src="js/dashboard.js"></script>
+
+</body>
+</html>

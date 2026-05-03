@@ -1,0 +1,19 @@
+.table {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+}
+
+.table-primary {
+    background-color: #2c6cb0 !important;
+    color: #fff;
+}
+
+img.icon {
+    width: 25px;
+    cursor: pointer;
+}
+
+.view-btn {
+    cursor: pointer;
+    color: #fff;
+}
