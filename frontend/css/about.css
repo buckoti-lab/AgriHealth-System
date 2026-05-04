@@ -1,0 +1,17 @@
+.about-page h5 {
+    margin-top: 20px;
+    color: #ffd700;
+}
+
+.about-page p, .about-page li {
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.about-page .card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: none;
+    color: #fff;
+}

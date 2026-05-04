@@ -66,11 +66,9 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
+SESSION_COOKIE_AGE = 60 * 60 * 24
 
-# MEDIA_URL = '/media/uploads'
-
-# MEDIA_ROOT = os.path.join(BASE_DIR, MEDIA_URL)
-MEDIA_URL = '/media/'  # URL to access files in browser
+MEDIA_URL = '/media/'  
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 """ REST_FRAMEWORK = {

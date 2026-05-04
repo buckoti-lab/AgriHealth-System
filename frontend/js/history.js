@@ -1,4 +1,3 @@
-// const BASE_URL = "http://127.0.0.1:8000";
 /* =========================
    FETCH HISTORY DATA
 ========================= */
@@ -70,7 +69,7 @@ $("#searchInput").on("keyup", function () {
 });
 
 /* =========================
-   FILTER (Improved)
+   FILTER DATA
 ========================= */
 $("#filterSelect").change(function () {
     let value = $(this).val();
@@ -106,7 +105,7 @@ $("#filterSelect").change(function () {
 });
 
 /* =========================
-   VIEW DETAILS (MODAL)
+   VIEW DETAILS (BOOTSTRAP MODAL)
 ========================= */
 $(document).on("click", ".view-btn", function () {
     let id = $(this).data("id");
@@ -116,12 +115,9 @@ $(document).on("click", ".view-btn", function () {
 
     $("#historyTreatments").empty();
 
-    // ✅ FIXED: Use 'treatments' (plural) not 'treatment'
     if (data.treatments && data.treatments.length > 0) {
         console.log(data.treatments)
         data.treatments.forEach(t => {
-            // Handle both object and string formats
-            // const treatmentText = t.solution || t.prevention || t;
             $("#historyTreatments").append(`<li>${t.solution}</li>`);
         });
     } else {
@@ -133,8 +129,6 @@ $(document).on("click", ".view-btn", function () {
 
 
 $(document).on("click","#historyTable .img-icon", function () {
-    alert("Now AM CLICKED!")
-    console.log("Doe")
     let id = $(this).data("id");
     let data = allData.find(item => item.id == id);
 
@@ -151,8 +145,7 @@ $(document).on("click","#historyTable .img-icon", function () {
 ========================= */
 $(document).on("click", ".delete-btn", function () {
     let id = $(this).data("id");
-    
-    // Confirmation dialog
+
     Swal.fire({
         title: "Are you sure?",
         text: "This prediction will be permanently deleted!",
@@ -163,7 +156,6 @@ $(document).on("click", ".delete-btn", function () {
         confirmButtonText: "Yes, delete it!"
     }).then((result) => {
         if (result.isConfirmed) {
-            // Send DELETE request to backend
             $.ajax({
                 url: `${BASE_URL}/api/ai/predictions/${id}/`,
                 method: "DELETE",
@@ -171,7 +163,6 @@ $(document).on("click", ".delete-btn", function () {
                     Authorization: `Bearer ${token}`
                 },
                 success: function(res) {
-                    // Remove from frontend arrays
                     allData = allData.filter(item => item.id != id);
                     filteredData = filteredData.filter(item => item.id != id);
                     renderTable(filteredData);
