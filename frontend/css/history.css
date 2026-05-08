@@ -3,17 +3,32 @@
     color: #fff;
 }
 
-.table-primary {
-    background-color: #2c6cb0 !important;
-    color: #fff;
+.container.mt-4 table thead  tr th{
+    background-color:#2c6cb0 ;
 }
 
-img .icon {
+/* img .icon {
     width: 25px;
     cursor: pointer;
+} */
+
+/* span.view-btn {
+    color: #fff;
+    cursor:pointer;
+} */
+
+.text-center.mb-3{
+ color: white;   
 }
 
-.view-btn {
-    cursor: pointer;
-    color: #fff;
+#historyTable{
+    color:black;
 }
+
+span.view-btn,
+.fa.fa-image,
+.fa.fa-trash{
+    cursor: pointer;
+}
+
+

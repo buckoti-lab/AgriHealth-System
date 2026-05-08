@@ -13,11 +13,13 @@ $(document).ready(function(e){
         });
 
 
-        $("#upper-nav a").click(function (e) {
+        $("#upper-nav a,#profileBtn").click(function (e) {
             e.preventDefault(); 
             
-            $(".nav-link").removeClass("active");
-            $(this).addClass("active");
+            if($(this).hasClass("nav-link")){
+                $(".nav-link").removeClass("active");
+                $(this).addClass("active");
+            }
 
             let pageName = $(this).data("content");
             if(pageName){
@@ -58,12 +60,6 @@ $(document).click(function () {
 $("#userMenu").click(function (e) {
     e.stopPropagation();
 });
-
-// Profile click
-$("#profileBtn").click(function () {
-    alert("Go to profile page");
-});
-
 
 function logoutUser(){
     localStorage.removeItem('access_token');

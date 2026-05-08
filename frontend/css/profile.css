@@ -1,0 +1,16 @@
+table tr:nth-child(even){
+    background-color: #5419df;
+}
+/*form {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border-radius: 10px;
+    margin:auto;
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: left;
+  } */
+.container.mt-4{
+    max-width: 500px;
+}

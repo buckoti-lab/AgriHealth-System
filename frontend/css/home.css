@@ -7,3 +7,7 @@ ul li img{
 .mt-3.supported{
     color: white;
 }
+
+.container-fluid.mt-3 .mt-4  h5{
+   color:white;
+}

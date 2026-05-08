@@ -1,0 +1,5 @@
+{
+    "crop_threshold": -1.8993549346923828,
+    "disease_threshold": -3.2694172859191895,
+    "quantile": 0.95
+}

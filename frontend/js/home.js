@@ -21,9 +21,10 @@ $("#uploadForm").on("submit",function(e){
           },
         success: function(res){
             if(res.success){
-                console.log(res)
+                if(res.unknown){
+                    swal.fire("Error!","Message "+res.message,"error");
+                }
                 updateResult(res.data)
-
             }else{
                 swal.fire("Error!","An error occured!: "+xhr.responseText,"error");
             }
@@ -73,7 +74,6 @@ function loadRecent(){
 
 // Update Result Panel
 function updateResult(res_data) {
-    console.log(res_data);
     res_data.forEach(d => {
         $("#veg").text(d.vegetable)
         $("#disease").text(d.disease)
@@ -113,8 +113,7 @@ $(document).on("click", ".viewBtn", function () {
 $(document).on("click","#recentTable .img-icon", function () {
     let id = $(this).data("id");
     let data = recentData[id];
-    alert("Image clicked"+BASE_URL+data.image)
-
+    
     $("#homeImage").attr("src", BASE_URL+data.image);
     $("#homeImageModal").modal("show")
 });

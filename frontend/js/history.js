@@ -44,8 +44,8 @@ function renderTable(data) {
                 <td><i class="fa fa-image img-icon" data-id="${item.id}"></i></td>
                 <td>${item.vegetable}</td>
                 <td>${item.disease}</td>
-                <td><span class="view-btn" data-id="${item.id}">👁 VIEW</span></td>
-                <td><i class="fa fa-trash text-danger delete-btn" data-id="${item.id}"></i></td>
+                <td><span class="view-btn" data-id="${item.id}"><i class="fa fa-eye"></i> VIEW</span></td>
+                <td><i class="fa fa-trash delete-btn" data-id="${item.id}"></i></td>
                 <td>${item.time_ago}</td>
             </tr>
         `);

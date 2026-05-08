@@ -1,5 +1,6 @@
 #python caches
 *.pyc
+__pycache__/
 
 # Environment variables
 .env
@@ -17,3 +18,7 @@ cnn_assets/
 
 # IDE
 .vscode/
+
+# OS files
+.DS_Store
+Thumbs.db

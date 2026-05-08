@@ -1,0 +1,36 @@
+{
+    "crop": {
+        "cabbage": 0,
+        "cucumber": 1,
+        "eggplant": 2,
+        "lettuce": 3,
+        "tomato": 4
+    },
+    "disease": {
+        "cabbage_Altenaria_spot": 0,
+        "cabbage_Bacterial leaf spot": 1,
+        "cabbage_Black_rot": 2,
+        "cabbage_Downy_mildew": 3,
+        "cabbage_Healthy": 4,
+        "cucumber_Anthracnose": 5,
+        "cucumber_Bacterial_Wilt": 6,
+        "cucumber_Downy_Mildew": 7,
+        "cucumber_Gummy_Stem_Blight": 8,
+        "cucumber_Healthy": 9,
+        "eggplant_Healthy": 10,
+        "eggplant_Insect_Pest_Disease": 11,
+        "eggplant_Mosaic_Virus_Disease": 12,
+        "eggplant_White_Mold_Disease": 13,
+        "eggplant_Wilt_Disease": 14,
+        "lettuce_Bacterial": 15,
+        "lettuce_Downy_mildew": 16,
+        "lettuce_Healthy": 17,
+        "lettuce_Powdery_mildew": 18,
+        "lettuce_Septoria_blight": 19,
+        "tomato_early_bright": 20,
+        "tomato_healthy": 21,
+        "tomato_late_bright": 22,
+        "tomato_leaf_mold": 23,
+        "tomato_septorial_leaf_spot": 24
+    }
+}

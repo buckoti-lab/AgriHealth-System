@@ -15,8 +15,11 @@ from diseases.models import Disease as D
 from treatments.models import Treatment as T
 
 
+    
+data = []
+
 # ============================
-# 🔍 Helper: Get Treatments
+# Helper: Get Treatments
 # ============================
 def get_treatments(disease):
     treatments = T.objects.filter(disease=disease)
@@ -31,7 +34,7 @@ def get_treatments(disease):
 
 
 # ============================
-# 🤖 Predict Endpoint
+# Predict Endpoint
 # ============================
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
@@ -41,30 +44,47 @@ def predict(request):
     if not image:
         return Response({"error": "No image provided"}, status=400)
 
-    # ✅ Save uploaded image
+    # Save uploaded image
     uploaded_image = I.objects.create(
         name=image.name,
         uploaded_by=request.user,
         image_file=image
     )
 
-    data = []
-
-    # ✅ Run AI prediction
+    # Run AI prediction
     path = uploaded_image.image_file.path
+
     result = predict_image(path)
 
-    # ✅ Get or create DB records
+    if result["label"] == "unknown":
+        data.append({
+            "vegetable": None,
+            "disease": None,
+            "crop_confidence": None,
+            "disease_confidence": None,
+            "image_url": uploaded_image.image_file.url,
+            "treatments": []
+        })
+
+        # Response  
+        return Response({
+            "success": True,
+            "unknown": True,
+            "message": "Unknown crop or disease detected.",
+            "data": data
+        })
+
+    # Get or create DB records
     veg, _ = V.objects.get_or_create(name=result["crop"])
     dis, _ = D.objects.get_or_create(
         name=result["disease"],
         vegetable=veg
     )
 
-    # ✅ Get treatments
+    # Get treatments
     treatment_data = get_treatments(dis)
 
-    # ✅ Save prediction history
+    # Save prediction history
     Prediction.objects.create(
         user=request.user,
         image=uploaded_image,
@@ -74,15 +94,14 @@ def predict(request):
         disease_confidence=result["disease_confidence"],
     )
 
-    # ✅ Response
-    
+    # Response  
     data.append({
         "vegetable": veg.name,
         "disease": dis.name,
         "crop_confidence": result["crop_confidence"],
         "disease_confidence": result["disease_confidence"],
         "image_url": uploaded_image.image_file.url,
-        "treatments": treatment_data  # always list (clean API)
+        "treatments": treatment_data 
     })
 
     return Response({
@@ -92,7 +111,7 @@ def predict(request):
 
 
 # ============================
-# 📊 History Endpoint
+# History Endpoint
 # ============================
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
@@ -100,8 +119,6 @@ def history(request):
     predictions = Prediction.objects.filter(
         user=request.user
     ).order_by('-created_at')
-
-    data = []
 
     for p in predictions:
         treatment_data = get_treatments(p.disease)
@@ -120,6 +137,8 @@ def history(request):
             "disease": p.disease.name,
             "date": p.created_at.isoformat(),
             "confidence": float(p.disease_confidence),
+            # "crop_confidence": float(result["crop_confidence"]),
+            # "disease_confidence": float(result["disease_confidence"]),
             "time_ago": time_display,
             "treatments": treatment_data
         })
@@ -130,7 +149,7 @@ def history(request):
     })
 
 # ============================
-# 📊 Recent Endpoint
+# Recent Endpoint
 # ============================
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
@@ -170,7 +189,7 @@ def recent(request):
 
 
 # ============================
-# 🗑️ Delete Prediction Endpoint
+# Delete Prediction Endpoint
 # ============================
 @api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
