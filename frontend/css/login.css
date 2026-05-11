@@ -6,7 +6,7 @@
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     background: url("../assets/logo.png") no-repeat center/cover;
     display: flex;
     justify-content: center;
