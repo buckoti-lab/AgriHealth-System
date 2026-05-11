@@ -8,12 +8,10 @@
 
 body {
     height: 100vh;
-    /* background: url("https://images.unsplash.com/photo-1542838132-92c53300491e") no-repeat center/cover;*/
     background: url("../assets/logo.png") no-repeat center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* opacity: 1; */
 
 }
 
@@ -97,8 +95,6 @@ body {
     text-decoration: none;
     color: #fff;
 }
-
-/* Or text */
 .or {
     margin: 10px 0;
     font-size: 14px;

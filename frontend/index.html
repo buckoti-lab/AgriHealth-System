@@ -1,10 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta http-equiv="refresh" content="0; url=/login.html">
-    <title>Redirecting...</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vegetable Disease Detector</title>
+
+    <!-- Bootstrap -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
-    <p>Redirecting to <a href="/login.html">login page</a>...</p>
+
+    <section class="hero-section">
+        <div class="overlay"></div>
+
+        <div class="container-fluid">
+            <div class="row min-vh-100 align-items-center px-lg-5 px-3 py-5">
+
+                <!-- LEFT CONTENT -->
+                <div class="col-lg-7 col-md-12 text-white content-area">
+
+                    <!-- Logo Section -->
+                    <div class="d-flex align-items-center gap-3 mb-4 flex-wrap">
+                        <img src="./assets/logo.png" alt="Logo" class="logo-img">
+
+                        <div>
+                            <h5 class="logo-title mb-0">
+                                VEGETABLE <br>
+                                DISEASE <br>
+                                DETECTOR
+                            </h5>
+                        </div>
+                    </div>
+
+                    <!-- Welcome Text -->
+                    <h3 class="welcome-text mb-3">
+                        Hello, Welcome To “Vegetable disease detector”
+                    </h3>
+
+                    <!-- Main Heading -->
+                    <h1 class="main-heading mb-4">
+                        Upload a photo and get instant diagnosis
+                    </h1>
+
+                    <!-- Description -->
+                    <p class="description-text mb-5">
+                        Begin Your vegetable disease diagnosis <br>
+                        by clicking Let’s Get Started to create account
+                    </p>
+
+                    <!-- Buttons -->
+                    <div class="mb-5 d-flex flex-column flex-sm-row gap-3 align-items-start">
+                        <a href="./register.html" class="btn btn-success custom-btn px-5 py-3">
+                            Let’s Get Started
+                        </a>
+
+                        <a href="./login.html" class="btn btn-outline-light login-btn px-5 py-3">
+                            Log In
+                        </a>
+                    </div>
+
+                    <!-- Supported Vegetables -->
+                    <div class="supported-box mt-4">
+                        <h4 class="supported-title mb-3">Supported Vegetables:</h4>
+
+                        <ul class="vegetable-list list-unstyled">
+                            <li><img src="assets/veg/tomato.jpg" alt="Tomato"> Tomato</li>
+                            <li><img src="assets/veg/cucumber.jpg" alt="Tomato"> Cucumber</li>
+                            <li><img src="assets/veg/cabbage.jpg" alt="Tomato"> Cabbage</li>
+                            <li><img src="assets/veg/eggplant.jpg" alt="Tomato"> Eggplant</li>
+                            <li><img src="assets/veg/lettuce.jpg" alt="Tomato"> Lettuce</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- RIGHT IMAGE -->
+                <div class="col-lg-5 col-md-12 text-center mt-5 mt-lg-0">
+                    <div class="farmer-image-wrapper">
+                        <img src="./assets/farmer.jpg" alt="Farmer" class="img-fluid farmer-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer-area text-center text-white py-3">
+            © 2026 Vegetable Disease Detector | FYP group 12
+        </footer>
+    </section>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
