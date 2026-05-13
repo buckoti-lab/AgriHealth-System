@@ -1,25 +1,21 @@
-<title>History Page</title>
+<title>Profile Page</title>
 
-<link rel="stylesheet" href="css/profile.css">
+<link rel="stylesheet" href="./css/profile.css">
 
 <div class="container mt-4">
 
     <h3 class="text-center mb-3">My Profile</h3>
 
-    <table>
-        <tbody>
-            <tr>
-              <td style="padding: 8px; font-weight: bold;">Email</td>
-              <td style="padding: 8px;" id="ViewEmail"></td>
-            </tr>
-            <tr>
-              <td style="padding: 8px; font-weight: bold;">Username</td>
-              <td style="padding: 8px;" id="ViewUsername"></td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="col-md-6">
+        <div class="card p-4 result-box">
+            <h5 class="text-center">My profile</h5>
 
-    <button onclick="openEditModal()">
+            <p><strong>Email:</strong> <span id="email">-</span></p>
+            <p><strong>Username:</strong> <span id="username">-</span></p>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3 w-5" id="editBtn" data-id="">Edit</button>
 </div>
 
 <!-- EDIT PROFILE VIEW MODAL -->
@@ -34,11 +30,12 @@
 
             <div class="modal-body">
                 <form id="editprofileForm">
+                    
+                    <input type="hidden" id="editId" name="id">
+                    <input type="email" name="email" id="editEmail" class="form-control mb-2" placeholder="Email name" required>
+                    <input type="text" name="username" id="editUsername" class="form-control mb-2" placeholder="username" required>
 
-                    <input type="email" name="email" class="form-control mb-2" placeholder="Email name" required>
-                    <input type="text" name="username" class="form-control mb-2" placeholder="username" required>
-
-                    <input type="submit" value="Update">
+                    <button type="submit" class="btn btn-primary mt-3 w-5" id="saveBtn">Save</button>
 
                 </form>
 
@@ -48,7 +45,4 @@
     </div>
 </div>
 
-<script src="js/profile.js"></script>
-
-</body>
-</html>
+<script src="./js/profile.js"></script>

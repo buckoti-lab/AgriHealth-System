@@ -1,4 +1,4 @@
-from .serializers import RegisterSerializer, LoginSerializer
+from .serializers import RegisterSerializer, LoginSerializer,EditProfileSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
@@ -33,23 +33,34 @@ def login(request):
         'refresh': str(refresh),
     })
 
-
-@api_view(['POST'])
-def logout(request):
-    return Response({"message": "Logged out"})
-
-
-
-
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
-def protected_view(request):
-    return Response({"message": "You are authenticated!"})
+def profile(request):
+    
+    data = {
+        "id": request.user.id,
+        "username": request.user.username,
+        "email": request.user.email
+    }
+    return Response({
+         "success":True,
+         "data":data
+    })
+
+@api_view(['PATCH'])
+@permission_classes([IsAuthenticated])
+def edit(request):
+    serializer = EditProfileSerializer(request.user, data=request.data, partial=True)
+    serializer.is_valid(raise_exception=True)
+    serializer.save()
+    return Response({
+        "success":True,
+        "message": "User details updated"
+    })
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def logout(request):
-    # Just return success - client will delete the token
     return Response({
         'success': True,
         'message': 'Logged out successfully. Please delete your token on client side.'

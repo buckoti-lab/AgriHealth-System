@@ -1,8 +1,11 @@
 $(document).ready(function(){
     $("#loginForm").on("submit", function(e){
         e.preventDefault();
-        
-        // Create JSON object instead of FormData
+
+
+        $("#loginBtn")
+            .html(`<span class="spinner-border spinner-border-sm"></span> Loading...`);
+    
         const loginData = {
             username: $("#username").val(),
             password: $("#password").val()
@@ -31,6 +34,9 @@ $(document).ready(function(){
                     errorMessage = xhr.responseText;
                 }
                 Swal.fire("Error!", "Something went wrong!:" + errorMessage, "error");
+            },
+            complete: function(){
+                $("#loginBtn").html(`Login`);
             }
         });
     });

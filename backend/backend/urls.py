@@ -24,15 +24,8 @@ from django.conf.urls.static import static
 urlpatterns = [
 
     path('', lambda request: redirect('http://localhost:5173', permanent=False)),
-    # path('api/protected/', include('users.urls')),
     path('admin/', admin.site.urls),
     path('api/auth/',include('users.urls')),
-    # path('api/auth/', include('users.urls')),
-    # path('api/', include('predictions.urls')),
-    # path('crops/', include('crops.urls')),
-    # path('users/', include('users.urls')),
-    # path('api/images/', include('images.urls')),
-    # path('api/diseases/', include('diseases.urls')),
     path('api/ai/', include('predictions.urls')),
 ]
 
