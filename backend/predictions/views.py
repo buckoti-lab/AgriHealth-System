@@ -8,6 +8,7 @@ from datetime import timedelta
 
 from .models import Prediction
 from .utils import predict_image
+from .validate_image import validateImage
 
 from images.models import Image as I
 from crops.models import Vegetable as V
@@ -43,6 +44,14 @@ def predict(request):
 
     if not image:
         return Response({"error": "No image provided"}, status=400)
+
+    validate = validateImage(image)
+
+    if validate['valid'] is False:
+        return Response({
+            "success":False,
+            "message":validate['message']
+        })
 
     # Save uploaded image
     uploaded_image = I.objects.create(
@@ -181,7 +190,6 @@ def recent(request):
             "treatments": treatment_data
         })
 
-    # return Response(data)
     return Response({
         "success":True,
         "data":data

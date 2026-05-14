@@ -8,6 +8,9 @@ function loadHistory() {
         headers: {
             Authorization: `Bearer ${token}`
         },
+        beforeSend: function(){
+          $("#loader").show()
+        },
         success: function (res) {
             console.log(res)
             if (res.success) {
@@ -18,6 +21,9 @@ function loadHistory() {
         },
         error: function (xhr) {
             console.log(xhr.responseText);
+        },
+        complete: function(){
+           $("#loader").hide()
         }
     });
 }
@@ -104,9 +110,7 @@ $("#filterSelect").change(function () {
     renderTable(filteredData);
 });
 
-/* =========================
-   VIEW DETAILS (BOOTSTRAP MODAL)
-========================= */
+
 $(document).on("click", ".view-btn", function () {
     let id = $(this).data("id");
     let data = allData.find(item => item.id == id);
@@ -141,7 +145,7 @@ $(document).on("click","#historyTable .img-icon", function () {
 });
 
 /* =========================
-   DELETE ITEM (With Backend Sync)
+   DELETE ITEM 
 ========================= */
 $(document).on("click", ".delete-btn", function () {
     let id = $(this).data("id");

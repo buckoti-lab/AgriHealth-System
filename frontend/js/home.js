@@ -26,7 +26,7 @@ $("#uploadForm").on("submit",function(e){
                 }
                 updateResult(res.data)
             }else{
-                swal.fire("Error!","An error occured!: "+xhr.responseText,"error");
+                swal.fire("Error!","An error occured!: "+res.message,"error");
             }
         },
         error:function(xhr,status,error){
@@ -66,8 +66,11 @@ function loadRecent(){
                 });
             }
         },
-        error: function(xhr){
-            console.log(xhr.responseText);
+        error: function(xhr,status,error){
+            console.log("XHR response: "+xhr.responseText+"\n"+
+                "STATUS: "+status+"\n"+
+                "ERROR: "+error
+            );
         }
     });
 }

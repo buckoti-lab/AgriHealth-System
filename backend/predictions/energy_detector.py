@@ -4,25 +4,12 @@ from scipy.special import logsumexp
 
 
 class EnergyBasedUnknownDetector:
-    """
-    Energy-Based Unknown Detector for Multi-Task Models
-
-    Supports:
-    - Crop classification
-    - Disease classification
-    - Unknown / OOD detection
-
-    NOTE:
-    The model MUST output logits (no softmax activation).
-    """
 
     def __init__(self, model, temperature=1.0):
 
         self.model = model
         self.temperature = temperature
 
-        # Default thresholds
-        # These should be calibrated using validation data
         self.crop_energy_threshold = -10.0
         self.disease_energy_threshold = -10.0
 
@@ -30,12 +17,6 @@ class EnergyBasedUnknownDetector:
     # ENERGY FUNCTION
     # ==========================================
     def _calculate_energy(self, logits):
-        """
-        Compute energy score using stable logsumexp.
-
-        Lower energy  -> more confident (known)
-        Higher energy -> less confident (unknown)
-        """
 
         return -self.temperature * logsumexp(
             logits / self.temperature,
@@ -52,18 +33,7 @@ class EnergyBasedUnknownDetector:
         disease_labels=None,
         return_details=False
     ):
-        """
-        Predict crop + disease with unknown detection.
 
-        Args:
-            image: Preprocessed image tensor
-            crop_labels: Dictionary/list mapping crop indices
-            disease_labels: Dictionary/list mapping disease indices
-            return_details: Return detailed prediction dictionary
-
-        Returns:
-            Prediction label or detailed dictionary
-        """
 
         # Ensure batch dimension
         if len(image.shape) == 3:
@@ -79,7 +49,6 @@ class EnergyBasedUnknownDetector:
 
         # ==========================================
         # SOFTMAX PROBABILITIES
-        # (used only for confidence display)
         # ==========================================
         crop_probs = tf.nn.softmax(crop_logits, axis=-1).numpy()
         disease_probs = tf.nn.softmax(disease_logits, axis=-1).numpy()
@@ -100,14 +69,7 @@ class EnergyBasedUnknownDetector:
         disease_energy = float(
             self._calculate_energy(disease_logits)[0]
         )
-
-        # ==========================================
-        # UNKNOWN DETECTION
-        # ==========================================
-        # is_unknown = (
-        #     crop_energy > self.crop_energy_threshold or
-        #     disease_energy > self.disease_energy_threshold
-        # )
+        
         is_unknown = (
             crop_energy > self.crop_energy_threshold or
             disease_energy > self.disease_energy_threshold or
