@@ -31,22 +31,31 @@ SECRET_KEY = 'django-insecure-l%zdmr%3*!_vi6-a3rrh$=bsaw-1@@(bug-avq)u2z_w7=7_=y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    "127.0.0.1",
-    "localhost",
-]
+# ALLOWED_HOSTS = [
+#     "127.0.0.1",
+#     "localhost",
+# ]
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-]
+# ALLOWED_HOSTS = ["*"]
 
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:5173",
+#     "http://127.0.0.1:5173",
+# ]
+# # CORS_ALLOWED_ORIGINS = ["*"]
+
+ALLOWED_HOSTS = ["*"]
+
+CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "http://172.16.1.81:5173",
+    "http://192.168.137.1:5173",
 ]
+# CSRF_TRUSTED_ORIGINS = ["*"]
 
 
 # Application definition
@@ -83,7 +92,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
 SESSION_COOKIE_AGE = 60 * 60 * 24
 
 MEDIA_URL = '/media/'  

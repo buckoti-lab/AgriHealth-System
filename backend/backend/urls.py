@@ -23,7 +23,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
 
-    path('', lambda request: redirect('http://localhost:5173', permanent=False)),
+    # path('', lambda request: redirect('http://localhost:5173', permanent=False)),
     path('admin/', admin.site.urls),
     path('api/auth/',include('users.urls')),
     path('api/ai/', include('predictions.urls')),

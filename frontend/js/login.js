@@ -12,7 +12,7 @@ $(document).ready(function(){
         };
         
         $.ajax({
-            url:"http://127.0.0.1:8000/api/auth/token/",
+            url:`${BASE_URL}/api/auth/token/`,
             method: "POST",
             contentType: "application/json",  
             data: JSON.stringify(loginData),   
@@ -33,7 +33,7 @@ $(document).ready(function(){
                 } else {
                     errorMessage = xhr.responseText;
                 }
-                Swal.fire("Error!", "Something went wrong!:" + errorMessage, "error");
+                Swal.fire("Error!", "Something went wrong!:" + errorMessage+"RESPONSE"+error, "error");
             },
             complete: function(){
                 $("#loginBtn").html(`Login`);

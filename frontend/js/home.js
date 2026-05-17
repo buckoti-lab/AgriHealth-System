@@ -43,7 +43,7 @@ $("#uploadForm").on("submit",function(e){
 
 function loadRecent(){
     $.ajax({
-        url: "http://127.0.0.1:8000/api/ai/predictions/recent",
+        url: `${BASE_URL}/api/ai/predictions/recent`,
         method: "GET",
         headers: {
             Authorization: `Bearer ${token}`

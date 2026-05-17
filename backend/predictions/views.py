@@ -16,9 +16,6 @@ from diseases.models import Disease as D
 from treatments.models import Treatment as T
 
 
-    
-data = []
-
 # ============================
 # Helper: Get Treatments
 # ============================
@@ -41,6 +38,8 @@ def get_treatments(disease):
 @permission_classes([IsAuthenticated])
 def predict(request):
     image = request.FILES.get('image')
+
+    data = []
 
     if not image:
         return Response({"error": "No image provided"}, status=400)
@@ -125,6 +124,9 @@ def predict(request):
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def history(request):
+
+    data = []
+    
     predictions = Prediction.objects.filter(
         user=request.user
     ).order_by('-created_at')
