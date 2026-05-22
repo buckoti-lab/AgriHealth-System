@@ -27,6 +27,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/',include('users.urls')),
     path('api/ai/', include('predictions.urls')),
+    path('api/vegetable/', include('crops.urls')),
+    path('api/disease/',include('diseases.urls')),
 ]
 
 if settings.DEBUG:

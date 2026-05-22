@@ -31,9 +31,7 @@ def get_treatments(disease):
     ]
 
 
-# ============================
-# Predict Endpoint
-# ============================
+# Prediction Endpoint
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def predict(request):
@@ -119,7 +117,7 @@ def predict(request):
 
 
 # ============================
-# History Endpoint
+# Get History
 # ============================
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])

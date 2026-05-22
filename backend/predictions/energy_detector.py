@@ -5,13 +5,15 @@ from scipy.special import logsumexp
 
 class EnergyBasedUnknownDetector:
 
-    def __init__(self, model, temperature=1.0):
+    def __init__(self, model, temperature=0.1):
 
         self.model = model
         self.temperature = temperature
 
-        self.crop_energy_threshold = -10.0
-        self.disease_energy_threshold = -10.0
+        # self.crop_energy_threshold = -10.0
+        # self.disease_energy_threshold = -10.0
+        self.crop_energy_threshold = float(np.load("models/crop_threshold.npy"))
+        self.disease_energy_threshold = float(np.load("models/disease_threshold.npy"))
 
     # ==========================================
     # ENERGY FUNCTION

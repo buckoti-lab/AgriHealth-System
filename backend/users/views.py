@@ -17,7 +17,7 @@ def register(request):
     return Response({
         "success":True,
         "message": "User created"
-        })
+    })
 
 
 @api_view(['POST'])

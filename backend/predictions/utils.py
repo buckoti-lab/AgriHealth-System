@@ -11,12 +11,13 @@ from .energy_detector import EnergyBasedUnknownDetector
 
 # Load model
 model = load_model("models/efficientnetv2_logits_100.keras")
+# model = load_model("models/last_model_e100.keras")
 
 detector = EnergyBasedUnknownDetector(model)
 
-# Load thresholds
-detector.crop_energy_threshold = float(np.load("models/crop_threshold.npy"))
-detector.disease_energy_threshold = float(np.load("models/disease_threshold.npy"))
+# # Load thresholds
+# detector.crop_energy_threshold = float(np.load("models/crop_threshold.npy"))
+# detector.disease_energy_threshold = float(np.load("models/disease_threshold.npy"))
 
 # Load labels
 with open("models/labels.json") as f:
@@ -61,3 +62,33 @@ def predict_image(filename):
         "label": result["label"],
         "img_url": filename
     }
+
+
+# def predict_image(filename):
+
+#     img = load_img(filename, target_size=(224,224))
+#     img_array = img_to_array(img)
+   
+#     img_array = preprocess_input(img_array)
+#     img_array = np.expand_dims(img_array, axis=0)
+
+#     #Multi-output prediction
+#     crop_pred, disease_pred = model.predict(img_array)
+
+#     crop_idx = np.argmax(crop_pred)
+#     disease_idx = np.argmax(disease_pred)
+
+#     crop = crop_classes[crop_idx]
+#     disease = disease_classes[disease_idx]
+
+#     crop_conf = float(np.max(crop_pred))
+#     disease_conf = float(np.max(disease_pred))
+
+#     return {
+#         "crop": crop,
+#         "disease": disease,
+#         "crop_confidence": crop_conf,
+#         "disease_confidence": disease_conf,
+#         "label": "",
+#         "img_url": filename
+#     }

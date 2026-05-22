@@ -5,91 +5,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vegetable Disease Detector</title>
 
-    <!-- Bootstrap -->
     <link href="./css/bootstrap.min.css" rel="stylesheet">
-
     <link rel="stylesheet" href="./css/index.css">
 </head>
+
 <body>
 
-    <section class="hero-section">
-        <div class="overlay"></div>
+<section class="hero-section">
 
-        <div class="container-fluid">
-            <div class="row min-vh-100 align-items-center px-lg-5 px-3 py-5">
+    <div class="overlay"></div>
 
-                <!-- LEFT CONTENT -->
-                <div class="col-lg-7 col-md-12 text-white content-area">
+    <div class="container-fluid">
 
-                    <!-- Logo Section -->
-                    <div class="d-flex align-items-center gap-3 mb-4 flex-wrap">
-                        <img src="./assets/logo.png" alt="Logo" class="logo-img">
+        <!-- HERO -->
+        <div class="row min-vh-100 align-items-center px-lg-5 px-3 py-5">
 
-                        <div>
-                            <h5 class="logo-title mb-0">
-                                VEGETABLE <br>
-                                DISEASE <br>
-                                DETECTOR
-                            </h5>
-                        </div>
-                    </div>
+            <!-- LEFT -->
+            <div class="col-lg-7 text-white">
 
-                    <!-- Welcome Text -->
-                    <h3 class="welcome-text mb-3">
-                        Hello, Welcome To “Vegetable disease detector”
-                    </h3>
+                <div class="d-flex align-items-center gap-3 mb-4">
+                    <img src="./assets/logo.png" class="logo-img">
 
-                    <!-- Main Heading -->
-                    <h1 class="main-heading mb-4">
-                        Upload a photo and get instant diagnosis
-                    </h1>
-
-                    <!-- Description -->
-                    <p class="description-text mb-5">
-                        Begin Your vegetable disease diagnosis <br>
-                        by clicking Let’s Get Started to create account
-                    </p>
-
-                    <!-- Buttons -->
-                    <div class="mb-5 d-flex flex-column flex-sm-row gap-3 align-items-start">
-                        <a href="./register.html" class="btn btn-success custom-btn px-5 py-3">
-                            Let’s Get Started
-                        </a>
-
-                        <a href="./login.html" class="btn btn-outline-light login-btn px-5 py-3">
-                            Log In
-                        </a>
-                    </div>
-
-                    <!-- Supported Vegetables -->
-                    <div class="supported-box mt-4">
-                        <h4 class="supported-title mb-3">Supported Vegetables:</h4>
-
-                        <ul class="vegetable-list list-unstyled">
-                            <li><img src="assets/veg/tomato.jpg" alt="Tomato"> Tomato</li>
-                            <li><img src="assets/veg/cucumber.jpg" alt="Tomato"> Cucumber</li>
-                            <li><img src="assets/veg/cabbage.jpg" alt="Tomato"> Cabbage</li>
-                            <li><img src="assets/veg/eggplant.jpg" alt="Tomato"> Eggplant</li>
-                            <li><img src="assets/veg/lettuce.jpg" alt="Tomato"> Lettuce</li>
-                        </ul>
+                    <div>
+                        <h5 class="logo-title">
+                            VEGETABLE <br>
+                            DISEASE <br>
+                            DETECTOR
+                        </h5>
                     </div>
                 </div>
 
-                <!-- RIGHT IMAGE -->
-                <div class="col-lg-5 col-md-12 text-center mt-5 mt-lg-0">
-                    <div class="farmer-image-wrapper">
-                        <img src="./assets/farmer.jpg" alt="Farmer" class="img-fluid farmer-image">
-                    </div>
+                <h3 class="welcome-text">
+                    Hello, Welcome To Vegetable Disease Detector
+                </h3>
+
+                <h1 class="main-heading">
+                    Upload a photo and get instant diagnosis
+                </h1>
+
+                <p class="description-text">
+                    Begin your vegetable disease diagnosis
+                    by creating an account.
+                </p>
+
+                <div class="d-flex gap-3 flex-wrap mt-4">
+                    <a href="./register.html" class="btn btn-success custom-btn">
+                        Let's Get Started
+                    </a>
+
+                    <a href="./login.html" class="btn btn-outline-light login-btn">
+                        Log In
+                    </a>
                 </div>
+
             </div>
+
+            <!-- RIGHT -->
+            <div class="col-lg-5 text-center mt-5 mt-lg-0">
+
+                <img src="./assets/farmer.jpg"
+                     class="img-fluid farmer-image">
+
+            </div>
+
         </div>
 
-        <!-- Footer -->
-        <footer class="footer-area text-center text-white py-3">
-            © 2026 Vegetable Disease Detector | FYP group 12
-        </footer>
-    </section>
+        <!-- ================= LISTING SECTION ================= -->
 
-    <script src="./js/bootstrap.bundle.min.js"></script>
+        <section class="listing-section py-5">
+
+            <div class="text-center mb-5">
+
+                <h2 class="listing-title">
+                    Supported Crops & Diseases
+                </h2>
+
+                <p class="listing-subtitle">
+                    Learn about vegetables and their diseases
+                </p>
+
+            </div>
+
+            <div class="row">
+
+                <!-- LEFT CROPS -->
+                <div class="col-lg-4 mb-4">
+
+                    <div id="cropList" class="crop-list">
+
+                        <!-- Dynamic -->
+
+                    </div>
+
+                </div>
+
+                <!-- RIGHT DETAILS -->
+                <div class="col-lg-8">
+
+                    <div id="cropDetails" class="crop-details-card">
+
+                        <h3>Select a Crop</h3>
+
+                        <p>
+                            Crop diseases and descriptions
+                            will appear here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <footer class="footer-area text-center text-white py-3">
+        © 2026 Vegetable Disease Detector | FYP Group 12
+    </footer>
+
+</section>
+
+<script src="./js/jquery-3.7.1.min.js"></script>
+<script src="./js/bootstrap.bundle.min.js"></script>
+<script src="./js/urls.js"></script>
+<script src="./js/index.js"></script>
+
 </body>
 </html>
