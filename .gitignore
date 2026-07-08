@@ -12,7 +12,7 @@ backup/
 media/
 webfonts/
 
-# AI Models
+# AI Model
 cnn_assets/
 *.keras
 
