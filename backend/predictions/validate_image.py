@@ -16,7 +16,7 @@ def validateImage(file):
         img = Image.open(file)
         img.verify()
     except Exception:
-        message = "Uploaded image is not a valid image"
+        message = "Uploaded file is not a valid image"
         valid = False
     
     file.seek(0)

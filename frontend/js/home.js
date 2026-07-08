@@ -11,7 +11,7 @@ $("#uploadForm").on("submit",function(e){
      const formData = new FormData(this)
 
      $.ajax({
-        url:`${BASE_URL}/api/ai/predict/`,
+        url:`${BASE_URL}/api/ai/predict/v1/`,
         method:"post",
         data:formData,
         processData:false,
@@ -22,7 +22,7 @@ $("#uploadForm").on("submit",function(e){
         success: function(res){
             if(res.success){
                 if(res.unknown){
-                    swal.fire("Error!","Message "+res.message,"error");
+                    swal.fire("Info!",res.message,"info");
                 }
                 updateResult(res.data)
             }else{
@@ -30,7 +30,7 @@ $("#uploadForm").on("submit",function(e){
             }
         },
         error:function(xhr,status,error){
-           swal.fire("Error!","Failed to predict: "+xhr.responseText+"Error: "+error,"error");
+           swal.fire("Error!",xhr.responseText,"error");
         },
         complete: function(){
             $("#predictBtn")

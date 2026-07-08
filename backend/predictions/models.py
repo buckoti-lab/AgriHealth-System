@@ -15,5 +15,9 @@ class Prediction(models.Model):
 
     crop_confidence = models.FloatField()
     disease_confidence = models.FloatField()
+    crop_energy = models.FloatField(null=True)
+    disease_energy = models.FloatField(null=True)
+    crop_m_distance = models.FloatField(null=True)
+    disease_m_distance = models.FloatField(null=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
